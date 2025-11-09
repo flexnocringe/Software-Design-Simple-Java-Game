@@ -2,6 +2,7 @@ import javafx.util.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Game {
 
@@ -84,5 +85,35 @@ public class Game {
                 }
             }
         }
+    }
+
+    public boolean startScreen(){
+        Scanner initialInput = new Scanner(System.in);
+        char[][] menuScreen = {
+                {'^','L','A','V','A',' ',' ',' ',' ',' '},
+                {' ','*','R','E','S','C','U','E','\'',' '},
+                {' ','\'',' ','"','^',' ','*',' ',' ',' '},
+                {' ','*','/','\'','/','\\','"','*',' ',' '},
+                {'^','_','/',' ',' ',' ','^','\\','_','\''}
+        };
+        for(int i =0; i<menuScreen.length;i++){
+            for(int j =0; j<menuScreen[0].length;j++){
+                System.out.print(menuScreen[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println("Press P to play OR Q to quit");
+        while(true){
+            System.out.print("Input: ");
+            char choice = initialInput.next().charAt(0);
+            if(choice=='P' ||  choice=='p'){
+                return true;
+            } else if(choice=='Q' ||  choice=='q'){
+                return false;
+            } else{
+                System.out.println("Invalid input :(");
+            }
+        }
+
     }
 }
