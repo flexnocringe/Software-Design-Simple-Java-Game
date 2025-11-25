@@ -1,5 +1,4 @@
-public class Entity {
-    protected static char symbol='E';
+public abstract class Entity {
     protected int x;
     protected int y;
 
@@ -7,6 +6,10 @@ public class Entity {
         this.x = x;
         this.y = y;
     }
+
+    public Entity(){}
+
+    public abstract char getSymbol();
 
     public int getX() {
         return x;

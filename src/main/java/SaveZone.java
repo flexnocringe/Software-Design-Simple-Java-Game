@@ -5,7 +5,8 @@ public class SaveZone extends Entity {
         super(x, y);
     }
 
-    public static char getSaveZoneSymbol(){
+    public SaveZone(){}
+    public char getSymbol(){
         return symbol;
     }
 }

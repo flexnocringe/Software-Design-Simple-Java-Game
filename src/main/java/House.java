@@ -5,7 +5,9 @@ public class House extends Entity{
         super(x, y);
     }
 
-    public static char getHouseSymbol() {
+    public House(){}
+
+    public char getSymbol() {
         return symbol;
     }
 }

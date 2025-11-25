@@ -9,7 +9,7 @@ public class GameMap {
             {' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'},
             {'0', 'H', ' ', 'H', 'R', ' ', ' ', ' ', 'H', ' ', ' '},
             {'1', 'R', ' ', ' ', 'R', 'R', 'H', ' ', 'R', 'R', 'H'},
-            {'2', 'R', ' ', ' ', 'R', ' ', ' ', ' ', ' ', 'R', ' '},
+            {'2', 'R', 'R', ' ', 'R', ' ', ' ', ' ', ' ', 'R', ' '},
             {'3', ' ', 'R', ' ', 'R', 'R', 'R', ' ', ' ', 'R', ' '},
             {'4', ' ', 'R', ' ', ' ', ' ', 'R', ' ', 'R', 'R', ' '},
             {'5', ' ', 'R', 'R', 'R', ' ', 'R', ' ', ' ', ' ', ' '},
@@ -38,9 +38,10 @@ public class GameMap {
 
     List<House> getHouses(){
         List<House> houses = new ArrayList<>();
+        House symbolHouse = new House();
         for(int i=0;i<map.length;i++){
             for(int j=0;j<map[i].length;j++){
-                if(map[i][j]==House.getHouseSymbol()){
+                if(map[i][j]==symbolHouse.getSymbol()){
                     houses.add(new House(i,j));
                 }
             }
@@ -90,8 +91,9 @@ public class GameMap {
 
     public boolean checkIfMapIsFilledWithLava(){
         int filledCounter = 0;
+        SaveZone symbolSaveZone = new SaveZone();
         for(int i=1; i<getMapWidth(); i++){
-            if(map[getMapHeight()-1][i] == SaveZone.getSaveZoneSymbol() || map[getMapHeight()-1][i] == Lava.getLavaSymbol()){
+            if(map[getMapHeight()-1][i] == symbolSaveZone.getSymbol() || map[getMapHeight()-1][i] == Lava.getLavaSymbol()){
                 filledCounter++;
             }
         }

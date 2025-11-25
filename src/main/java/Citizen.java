@@ -12,6 +12,8 @@ public class Citizen extends Entity {
         this.houseNumber = houseNumber;
     }
 
+    public Citizen(){}
+
     public void generateShortestPath(GameMap map){
         shortestPath = PathFinder.findShortestPath(map, this);
     }
