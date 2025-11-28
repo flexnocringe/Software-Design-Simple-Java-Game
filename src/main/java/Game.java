@@ -10,7 +10,7 @@ public class Game {
     private Lava lava = new Lava();
     int remainingRoads = 2;
     int remainingBarricades = 2;
-    private Player player = new  Player(remainingRoads, remainingBarricades);
+    private Player player = new Player(remainingRoads, remainingBarricades);
 
     public void start() {
         int lavaCounter = 0;
@@ -19,7 +19,7 @@ public class Game {
         int lavaIntensify = 2;
         List<Citizen> citizens = new ArrayList<>();
         List<House> houses = map.getHouses();
-        House symbolHouse = new House();
+        House symbolHouse = (House) EntityFactory.createEntity(EntityType.HOUSE);
         List<SaveZone> saveZones = map.getSaveZones();
         int startCitizens = placeCitizens(houses, citizens);
         while(!map.checkIfMapIsFilledWithLava()){
@@ -106,7 +106,7 @@ public class Game {
 
     private int placeCitizens(List<House> houses, List<Citizen> citizens) {
         for(House house : houses) {
-            citizens.add(new Citizen(house.getX(), house.getY(), houses.indexOf(house)));
+            citizens.add((Citizen) EntityFactory.createEntity(EntityType.CITIZEN, house.getX(), house.getY(), houses.indexOf(house)));
         }
         int startCitizens = citizens.size();
         for(Citizen citizen : citizens) {

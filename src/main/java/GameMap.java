@@ -36,25 +36,25 @@ public class GameMap {
         map[x][y] = tile;
     }
 
-    List<House> getHouses(){
+    public List<House> getHouses(){
         List<House> houses = new ArrayList<>();
-        House symbolHouse = new House();
+        House symbolHouse = (House) EntityFactory.createEntity(EntityType.HOUSE);
         for(int i=0;i<map.length;i++){
             for(int j=0;j<map[i].length;j++){
                 if(map[i][j]==symbolHouse.getSymbol()){
-                    houses.add(new House(i,j));
+                    houses.add((House) EntityFactory.createEntity(EntityType.HOUSE, i, j));
                 }
             }
         }
         return houses;
     }
 
-    List<SaveZone> getSaveZones(){
+    public List<SaveZone> getSaveZones(){
         List<SaveZone> saveZones = new ArrayList<>();
         for(int i=0;i<map.length;i++){
             for(int j=0;j<map[i].length;j++){
                 if(map[i][j]=='S'){
-                    saveZones.add(new SaveZone(i,j));
+                    saveZones.add((SaveZone) EntityFactory.createEntity(EntityType.SAVEZONE, i, j));
                 }
             }
         }

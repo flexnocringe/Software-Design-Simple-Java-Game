@@ -1,11 +1,11 @@
-import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Citizen extends Entity {
     protected static char symbol='C';
     private List<int[]> shortestPath;
     private int houseNumber;
+
+    MovementStrategy movementStrategy = new ShortestPathMovementStrategy();
 
     public Citizen(int x, int y, int houseNumber) {
         super(x, y);
@@ -23,11 +23,7 @@ public class Citizen extends Entity {
     }
 
     public void makeMove(){
-        if(!shortestPath.isEmpty()){
-            this.x = shortestPath.getFirst()[0];
-            this.y = shortestPath.getFirst()[1];
-            shortestPath.removeFirst();
-        }
+        shortestPath = movementStrategy.move(this, shortestPath);
     }
 
     public char getSymbol(){
