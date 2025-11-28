@@ -55,11 +55,9 @@ public class Player {
                 }
                 return null;
             } else if(choice == 'R' || choice == 'r'){
-                Pair<Boolean, int[]> isRoad1 = placeRoad(structureCords, input);
-                if (isRoad1 != null) return isRoad1;
+                return placeRoad(structureCords, input);
             } else if(choice == 'B' || choice == 'b'){
-                Pair<Boolean, int[]> isRoad1 = placeBarrier(structureCords, input);
-                if (isRoad1 != null) return isRoad1;
+                return placeBarrier(structureCords, input);
             }else {
                 System.out.println("Error!!! Please input correct choice.");
             }

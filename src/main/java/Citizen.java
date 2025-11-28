@@ -12,6 +12,10 @@ public class Citizen extends Entity {
         this.houseNumber = houseNumber;
     }
 
+    public Citizen(int x, int y) {
+        super(x, y);
+    }
+
     public Citizen(){}
 
     public void generateShortestPath(GameMap map){

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Game {
 
-    private GameMap map = new GameMap();
+    public GameMap map = new GameMap();
     private Lava lava = new Lava();
     int remainingRoads = 2;
     int remainingBarricades = 2;
@@ -50,7 +50,7 @@ public class Game {
         }
     }
 
-    private void doPlayerAction(Pair<Boolean, int[]> playerAction, List<Citizen> citizens) {
+    public void doPlayerAction(Pair<Boolean, int[]> playerAction, List<Citizen> citizens) {
         if(playerAction !=null){
             if(playerAction.getKey())
             {
